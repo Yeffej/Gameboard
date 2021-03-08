@@ -1,0 +1,20 @@
+{
+  "name": "GameBoard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Yefri Encarnación",
+    "email": "yefriej128@gmail.com",
+    "alias": "YeffEJ"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
