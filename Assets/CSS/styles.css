@@ -1,6 +1,8 @@
 :root {
     --mainBackground: white;
     --mainColor: white;
+    --secondColor: #000f99;
+    --textShadow: 1px 1px 2px black;
 }
 
 * {
@@ -14,10 +16,128 @@ body {
     color: var(--mainColor);
 }
 .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-image:  url("https://i.ibb.co/jkZ4y2x/game-3.webp");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     width: 100%;
+    position: relative;
+}
+.hero_takeAction {
+    margin: 0px;
+    text-align: center;
+    text-shadow: var(--textShadow);
+}
+.hero_takeAction h1 {
+    font-size: 1.5em;
+    margin: 5px 0;
+}
+.hero_takeAction p {
+    font-size: 0.9em;
+    line-height: 1em;
+    font-weight: 600;
+    padding: 10px;
+    margin-bottom: 8px;
+}
+.hero_takeAction a {
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1em;
+    color: var(--mainColor);
+    padding: 0.5em 2em;
+    background-color: var(--secondColor);
+}
+
+.hero_styles {
+    align-self: center;
+}
+.hero_styles figure img {
+    width: 200px;
+}
+.hero_styles-email {
+    display: none;
+}
+
+.hero_goDown {
+    border: 1px solid black;
+    padding: 3px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    position: absolute;
+    bottom: 5px;
+    left: calc(50% - 6px);
+    background-color: black;
+    color: var(--mainColor);
+    outline: none;
+}
+
+
+
+
+@media screen and (min-width: 680px) {
+    .hero_styles figure img {
+        width: 250px;
+    }
+    .hero_takeAction h1 {
+        font-size: 2.5em;
+    }
+    .hero_takeAction p {
+        font-size: 1.1em;
+        line-height: 1.2em;
+    }
+}
+@media screen and (min-width: 850px) {
+    .hero_takeAction a {
+        font-size: 1.1em;
+        padding: 0.5em 2.3em;
+    }
+}
+@media screen and (min-width: 1000px) {
+    .hero {
+        flex-direction: row;
+        align-items: center;
+    }
+    .hero_takeAction h1 {
+        font-size: 4em;
+        margin: 10px 0;
+    }
+    .hero_takeAction p {
+        font-size: 1.2em;
+        line-height: 1.4em;
+        margin-bottom: 30px;
+    }
+    .hero_takeAction a {
+        font-size: 1.2em;
+        border-radius: 15px;
+        padding: 0.5em 2.5em;
+    }
+    .hero_styles figure img {
+        width: initial;
+    }
+    .hero_styles-email {
+        display: block;
+        margin: 10px;
+    }
+    .hero_styles-email p {
+        font-size: 1.05em;
+        font-weight: 600;
+        text-shadow: var(--textShadow);
+        padding: 5px;
+    }
+    .hero_styles-email input {
+        padding: 8px;
+        border: 1px solid var(--mainColor);
+        border-radius: 10px;
+        width: 80%;
+    }
+    .hero_goDown {
+        padding: 5px;
+        font-size: 1.7em;
+        left: calc(50% - 10px);
+        bottom: 10px;
+    }
 }
