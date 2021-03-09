@@ -1,7 +1,9 @@
 :root {
-    --mainBackground: white;
-    --mainColor: white;
+    --mainBackground: #fff;
+    --secondBackground: #000000c4;
+    --mainColor: #fff;
     --secondColor: #000f99;
+    --thirdColor: #000;
     --textShadow: 1px 1px 2px black;
 }
 
@@ -15,6 +17,45 @@ body {
     background: var(--mainBackground);
     color: var(--mainColor);
 }
+
+/* HEADER */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    height: 5rem;
+    width: 100%;
+    background-color: var(--secondBackground);
+    opacity: 0;
+    animation-timing-function: ease-in-out;
+}
+header img {
+    width: 180px;
+}
+header nav {
+    height: 50%;
+}
+header nav ul {
+    height: inherit;
+}
+header nav ul li {
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    height: inherit;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    transition: .4s;
+}
+header nav ul li:hover {
+    color: var(--secondColor);
+}
+
+ /* HERO */
 .hero {
     display: flex;
     flex-direction: column;
@@ -75,10 +116,52 @@ body {
     outline: none;
 }
 
+/* SERVICES */
+.services {
+    color: var(--thirdColor);
+    margin: 10px 0;
+    overflow: auto;
+}
+.services img {
+    width: 200px;
+}
 
+.services_title {
+    text-transform: capitalize;
+}
+
+/* Subscriptions */
+
+.subscriptions_logo {
+    width: 250px;
+}
+
+/* Questions */
+
+/* Footer */
+
+footer img {
+    width: 200px;
+}
 
 
 @media screen and (min-width: 680px) {
+    /* HEADER */
+    header {
+        flex-direction: row;
+    }
+    header nav {
+        height: 100%;
+    }
+    header nav ul li {
+        line-height: 5rem;
+        font-size: 1.1em;
+    }
+    header img {
+        width: 200px;
+    }
+
+     /* HERO */
     .hero_styles figure img {
         width: 250px;
     }
@@ -91,12 +174,26 @@ body {
     }
 }
 @media screen and (min-width: 850px) {
+     /* HERO */
     .hero_takeAction a {
         font-size: 1.1em;
         padding: 0.5em 2.3em;
     }
 }
 @media screen and (min-width: 1000px) {
+    /* HEADER */
+    
+    header img {
+        width: 280px;
+    }
+   
+    header nav ul li {
+        display: inline-block;
+        margin: 0 12px;
+        font-size: 1.2em;
+    }
+
+    /* HERO */
     .hero {
         flex-direction: row;
         align-items: center;
@@ -130,14 +227,45 @@ body {
     }
     .hero_styles-email input {
         padding: 8px;
-        border: 1px solid var(--mainColor);
-        border-radius: 10px;
+        color: var(--thirdColor);
+        font-weight: 800;
+        font-size: inherit;
+        border: 5px solid var(--mainColor);
+        border-radius: 10px 0px / 10px 0px;
+        background-color: transparent;
         width: 80%;
+        outline: none;
+    }
+    .hero_styles-email input::placeholder {
+        color: var(--thirdColor);
+        font-weight: 800;
+        font-size: 1em;
     }
     .hero_goDown {
         padding: 5px;
         font-size: 1.7em;
         left: calc(50% - 10px);
         bottom: 10px;
+    }
+
+}
+
+
+/* ANIMATIONS AND OTHERS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
     }
 }
