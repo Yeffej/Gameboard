@@ -1,10 +1,46 @@
 :root {
     --mainBackground: #fff;
     --secondBackground: #000000c4;
+    --thridBackground: #0920f1;
     --mainColor: #fff;
     --secondColor: #000f99;
     --thirdColor: #000;
+    --fourthColor: #090811;
+    --SertextColor: #1b1b1de1;
     --textShadow: 1px 1px 2px black;
+    --mainfont: roboto;
+    --specialFont: akaya;
+    --secondfont: sandpro;
+}
+
+@font-face {
+    src: url("../fonts/Akaya_telivagala/AkayaTelivigala-Regular.ttf");
+    font-family: akaya;
+}
+@font-face {
+    src: url("../fonts/Roboto/Roboto-Bold.ttf");
+    font-family: roboto;
+    font-weight: 600;
+}
+@font-face {
+    src: url("../fonts/Roboto/Roboto-Black.ttf");
+    font-family: roboto;
+    font-weight: 900;
+}
+@font-face {
+    src: url("../fonts/Roboto/Roboto-Light.ttf");
+    font-family: roboto;
+    font-weight: normal;
+}
+@font-face {
+    src:url("../fonts/SansPro/SourceSansPro-Black.ttf");
+    font-family: sandpro;
+    font-weight: 900;
+}
+@font-face {
+    src:url("../fonts/SansPro/SourceSansPro-Regular.ttf");
+    font-family: sandpro;
+    font-weight: normal;
 }
 
 * {
@@ -16,7 +52,10 @@
 body {
     background: var(--mainBackground);
     color: var(--mainColor);
+    font-family: var(--mainfont);
 }
+
+
 
 /* HEADER */
 header {
@@ -80,7 +119,7 @@ header nav ul li:hover {
 .hero_takeAction p {
     font-size: 0.9em;
     line-height: 1em;
-    font-weight: 600;
+    font-weight: normal;
     padding: 10px;
     margin-bottom: 8px;
 }
@@ -111,41 +150,204 @@ header nav ul li:hover {
     position: absolute;
     bottom: 5px;
     left: calc(50% - 6px);
-    background-color: black;
+    background-color: var(--thirdColor);
     color: var(--mainColor);
     outline: none;
 }
 
 /* SERVICES */
 .services {
-    color: var(--thirdColor);
+    color: var(--SertextColor);
     margin: 10px 0;
     overflow: auto;
+    text-align: center;
+    font-family: var(--secondfont);
 }
 .services img {
     width: 200px;
-}
+    border-radius: 10px;
 
+}
+.services article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    padding: 10px;
+    width: 80%;
+    box-shadow: 3px 3px 5px 1px black;
+}
 .services_title {
     text-transform: capitalize;
+    margin: 12px 0;
+    color: var(--fourthColor);
+    font-family: var(--specialFont);
+    font-size: 1.8em;
+}
+.services article p {
+    font-weight: bold;
+    font-size: 0.8em;
 }
 
 /* Subscriptions */
-
+.subscriptions {
+    margin: 10px 0;
+    color: var(--thirdColor);
+}
+.subscriptions-intro {
+    display: grid;
+    grid-template-rows: 1fr 1.5fr;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: "img  title"
+                    "description description";
+    justify-items: center;
+    align-items: center;
+}
 .subscriptions_logo {
-    width: 250px;
+    width: 60px;
+    grid-area: img; 
+}
+.subscriptions_title {
+    text-transform: capitalize;
+    grid-area: title;
+    font-size: 1.4em;
+    padding: 5px;
+}
+.subscriptions_descrip {
+    grid-area: description;
+    text-align: center;
+    font-size: 0.9em;
+    padding:  0 10px;
+}
+.subscriptions-all {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr 1fr;
+    grid-template-areas: "cards"
+                        "benefits"
+                        "extras";
+}
+.subscriptions_cardContainer {
+    display: flex;
+    grid-area: cards;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+
+}
+.card {
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px black;
+    width: 80%;
+    text-align: center;
+    padding: 8px;
+    margin: 8px;
+}
+.cardContainer_crd {
+    flex-shrink: 0;
+    scroll-snap-align: center;
+}
+.card h3 {
+    border-bottom: 1px solid var(--thirdColor);
+    background-color:  var(--secondBackground);
+    color: var(--mainColor);
+    padding: 10px;
+    margin-bottom: 5px;
+}
+.card a {
+    background-color: var(--secondColor);
+    color: var(--mainColor);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    line-height: 4;
+
+}
+.card .price {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+.card .descrip {
+    font-size: 1.1em;
+}
+.arrows {
+    position: relative;
+    overflow: hidden;
+}
+.arrowRight  {
+    width: 0;
+    height: 0;
+    content: "";
+    border-left: 20px solid black;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    position: absolute;
+    bottom: calc(50% - 36px);
+    right: 10px;
+    -webkit-transition: .2s transform;
+    -moz-transition: .2s transform;
+    transition: .2s transform; 
+}  
+.arrowLeft {
+    width: 0;
+    height: 0;
+    content: "";
+    border-top: 16px solid transparent;
+    border-right: 20px solid black;
+    border-bottom: 16px solid transparent;
+    position: absolute;
+    left: 10px;
+    bottom: calc(50% - 36px);
+    -webkit-transition: .2s transform;
+    -moz-transition: .2s transform;
+    transition: .2s transform;
+}
+.arrowRight:active {
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    transform: scale(0.7);
+}
+.arrowLeft:active {
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    transform: scale(0.7);
+}
+
+.subscriptions_benefits{
+    grid-area: benefits;
+    padding: 20px 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+.subscriptions_benefits li {
+    border-bottom: 2px solid black;
+    padding: 15px 0;
+}
+.subscriptions_extras{
+    grid-area: extras;
+}
+
+.check {
+    display: none;
 }
 
 /* Questions */
-
+.Questions {
+    background-color: var(--secondBackground);
+    
+}
 /* Footer */
-
+footer {
+    background-color: var(--thridBackground);
+}
 footer img {
     width: 200px;
 }
 
 
 @media screen and (min-width: 680px) {
+    
     /* HEADER */
     header {
         flex-direction: row;
@@ -160,8 +362,8 @@ footer img {
     header img {
         width: 200px;
     }
-
-     /* HERO */
+    
+    /* HERO */
     .hero_styles figure img {
         width: 250px;
     }
@@ -172,27 +374,53 @@ footer img {
         font-size: 1.1em;
         line-height: 1.2em;
     }
+    /* SERVICES */
+    .services img {
+        width: 250px;
+    }
+    .services article {
+        width: 75%;
+    }
+    .services_title {
+        font-size: 2.3em;
+        margin-bottom: 20px;
+    }
+    .services article p {
+        font-size: 1.15em;
+        text-align: initial;
+        padding: 0 10px;
+    }
+    /* SUBSCRIPTIONS */
+
 }
 @media screen and (min-width: 850px) {
-     /* HERO */
+    /* HERO */
     .hero_takeAction a {
         font-size: 1.1em;
         padding: 0.5em 2.3em;
     }
+    
+    /* SERVICES */
+    .services_title {
+        font-size: 2.5em;
+        margin-bottom: 25px;
+    }
+    /* SUBSCRIPTIONS */
 }
 @media screen and (min-width: 1000px) {
+    
     /* HEADER */
     
     header img {
         width: 280px;
     }
-   
+    
     header nav ul li {
         display: inline-block;
         margin: 0 12px;
         font-size: 1.2em;
     }
-
+    
     /* HERO */
     .hero {
         flex-direction: row;
@@ -247,7 +475,20 @@ footer img {
         left: calc(50% - 10px);
         bottom: 10px;
     }
-
+    /* SERVICES */
+    .services img {
+        width: 350px;
+    }
+    .services article {
+        width: 70%;
+    }
+    .services article p {
+        font-size: 1.35em;
+    }
+    .services_title {
+        font-size: 2.8em;
+    }
+    /* SUBSCRIPTIONS */
 }
 
 
