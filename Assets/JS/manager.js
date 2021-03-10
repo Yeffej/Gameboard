@@ -5,6 +5,7 @@ class PageManager {
         this.toggleHeader()
         this.floatServices()
         this.runPlugins() 
+        this.toggleAnswers()
     }
     initializer(config) {
         this.header = config.hder
@@ -14,6 +15,8 @@ class PageManager {
         this.carousel = config.carousel
         this.arrowLeft  = config.arrowLeft
         this.arrowRight =  config.arrowRight
+        this.answers = config.answers,
+        this.pluses = config.pluses
     }
     runPlugins(plugins) {
         this.plugins.forEach( plugin => {
@@ -63,6 +66,20 @@ class PageManager {
         document.body.onresize = floatWhether
 
         floatWhether();
+    }
+
+    toggleAnswers() {
+        const regexAns1 = new RegExp(/.+1/)
+        const regexAns2 = new RegExp(/.+2/)
+        const regexAns3 = new RegExp(/.+3/)
+
+        this.pluses.forEach(plus => {
+            plus.addEventListener("click", handlePlus)  
+        }) 
+
+        function handlePlus(e) {
+            console.log(e)
+        }
     }
     
 }

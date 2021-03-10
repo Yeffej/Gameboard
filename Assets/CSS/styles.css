@@ -2,6 +2,7 @@
     --mainBackground: #fff;
     --secondBackground: #000000c4;
     --thridBackground: #0920f1;
+    --fourthBackground: #050202;
     --mainColor: #fff;
     --secondColor: #000f99;
     --thirdColor: #000;
@@ -130,6 +131,12 @@ header nav ul li:hover {
     color: var(--mainColor);
     padding: 0.5em 2em;
     background-color: var(--secondColor);
+    transition: 1s;
+}
+.hero_takeAction a:active {
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    transform: scale(0.7);
 }
 
 .hero_styles {
@@ -260,7 +267,12 @@ header nav ul li:hover {
     padding: 10px;
     border-radius: 5px;
     line-height: 4;
-
+    transition: 0.4s;
+}
+.card a:active {
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    transform: scale(0.7);
 }
 .card .price {
     font-size: 1.2em;
@@ -334,27 +346,49 @@ header nav ul li:hover {
     display: none;
 }
 
-.crdEx {
-    border-radius: 10px;
-    box-shadow: 1px 1px 1px 1px black;
-    width: 80%;
-    text-align: center;
-    padding: 8px;
-    margin: 8px;
-    margin: 0 auto;
-}
-
 /* Questions */
 .Questions {
-    background-color: var(--secondBackground);
-    
+    background-color: var(--fourthBackground);
+    padding: 20px;
 }
+.Questions_title {
+    margin-bottom: 0.8em;
+    font-family: var(--secondfont);
+    font-size: 1.4em;
+}
+.Questions_wrapper {
+    margin-bottom: 20px;
+}
+.Questions_qst {
+    font-family: var(--specialFont);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Questions_qst h3 {
+    font-size: 1.28em;
+}
+.Questions_qst span {
+    font-size: 2em;
+    cursor: pointer;
+}
+
 /* Footer */
 footer {
     background-color: var(--thridBackground);
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.8em;
 }
 footer img {
-    width: 200px;
+    width: 120px;
+}
+footer p span {
+    margin: 5px;
+}
+footer p span:hover {
+    text-decoration: underline;
+    color: var(--thirdColor);
 }
 
 
@@ -402,8 +436,36 @@ footer img {
         text-align: initial;
         padding: 0 10px;
     }
-    /* SUBSCRIPTIONS */
 
+    /* SUBSCRIPTIONS */
+    .subscriptions-intro {
+        grid-template-columns: 1fr 4fr;
+    }
+    .subscriptions_logo {
+        width: 100px;
+        grid-area: img; 
+        justify-self: end;
+    }
+    .subscriptions_title {
+        font-size: 2em;
+        padding: 5px 10px;
+    }
+    .subscriptions_descrip {
+        grid-area: description;
+        text-align: center;
+        font-size: 1.2em;
+        padding:  0 10px;
+    }
+    /* FOOTER */
+    footer {
+        font-size: 1em;
+    }
+    footer p span {
+        margin: 10px;
+    }
+    footer img {
+        width: 180px;
+    }
 }
 @media screen and (min-width: 850px) {
     /* HERO */
@@ -417,7 +479,8 @@ footer img {
         font-size: 2.5em;
         margin-bottom: 25px;
     }
-    /* SUBSCRIPTIONS */
+    /* FOOTER */
+
 }
 @media screen and (min-width: 1000px) {
     
@@ -501,6 +564,24 @@ footer img {
         font-size: 2.8em;
     }
     /* SUBSCRIPTIONS */
+    .subscriptions-intro {
+        grid-template-rows: 1fr 1.2fr;
+    }
+    .subscriptions_logo {
+        width: 160px;
+        grid-area: img; 
+    }
+    .subscriptions_title {
+        font-size: 2.5em;
+    }
+    .subscriptions_descrip {
+        font-size: 1.35em;
+        padding:  0 10px;
+    }
+    /* FOOTER */
+    footer img {
+        width: 200px;
+    }
 }
 
 
@@ -520,5 +601,14 @@ footer img {
     }
     to {
         opacity: 0;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(135deg);
     }
 }
